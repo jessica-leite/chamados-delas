@@ -1,2 +1,2 @@
 # chamados-delas
-Sistema de atendimento de chamados - projeot final ElasTech SoulCode
+Sistema de atendimento de chamados - projeto final ElasTech SoulCode
