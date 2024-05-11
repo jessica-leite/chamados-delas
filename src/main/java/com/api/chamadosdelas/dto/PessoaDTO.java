@@ -1,42 +1,25 @@
-package com.api.chamadosdelas.models;
+package com.api.chamadosdelas.dto;
 
-import jakarta.persistence.*;
 import jakarta.validation.constraints.Email;
 import org.hibernate.validator.constraints.Length;
 
-@Entity
-@Table(name = "pessoa")
-public class Pessoa {
-    @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private int id;
+import java.util.Locale;
 
-    @Column
+public class PessoaDTO {
     private String nome;
-
-    @Column
     @Email(message = "O campo [email] deve conter um e-mail válido")
     private String email;
-
-    @Column
+    @Length(min = 8, max = 100)
     private String senha;
-
-    @ManyToOne
-    @JoinColumn(name = "setor_id")
-    private Setor setor;
-
-    @Column
+    private String setor;
     private String tipo;
 
-    public Pessoa() {
-    }
-
-    public int getId() {
-        return id;
-    }
-
-    public void setId(int id) {
-        this.id = id;
+    public PessoaDTO(String nome, String email, String senha, String setor, String tipo){
+        this.nome = nome;
+        this.email = email;
+        this.senha = senha;
+        this.setor = setor;
+        this.tipo = tipo;
     }
 
     public String getNome() {
@@ -63,12 +46,13 @@ public class Pessoa {
         this.senha = senha;
     }
 
-   public Setor getSetor() {
-       return setor;
+    public String getSetor() {
+        return setor;
     }
-    public void setSetor(Setor setor) {
+
+    public void setSetor(String setor) {
         this.setor = setor;
-   }
+    }
 
     public String getTipo() {
         return tipo;
