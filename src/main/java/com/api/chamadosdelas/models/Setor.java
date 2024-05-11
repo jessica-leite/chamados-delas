@@ -2,6 +2,8 @@ package com.api.chamadosdelas.models;
 
 import jakarta.persistence.*;
 
+import java.util.List;
+
 @Entity
 @Table(name = "setor")
 public class Setor {
@@ -11,6 +13,9 @@ public class Setor {
 
     @Column
     private String nome;
+
+    public Setor() {
+    }
 
     public int getId() {
         return id;
@@ -27,4 +32,5 @@ public class Setor {
     public void setNome(String nome) {
         this.nome = nome;
     }
+
 }

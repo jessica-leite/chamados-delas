@@ -44,4 +44,14 @@ public class SetorService {
         c =this.setorRepository.save(c);
         return c;
     }
+
+    public Setor findByName(String nome){
+        Optional<Setor> resultado = this.setorRepository.findByNome(nome);
+
+        if (resultado.isEmpty()) {
+            throw new RuntimeException("Setor não encontrado!");
+        } else {
+            return resultado.get();
+        }
+    }
 }
