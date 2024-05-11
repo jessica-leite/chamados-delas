@@ -22,28 +22,28 @@
         <img src="../static/assets/logo-principal.png" alt="">
     </container>
     <container class="w-full h-full flex justify-center items-center" style="background-color:#B9375E">
-            <div class="flex flex-col items-center bg-pink-100 rounded-lg p-24 " >
+            <div class="flex flex-col items-center bg-pink-100 rounded-lg p-24 drop-shadow-2xl " >
                 <h2 class=" mb-12 text-6xl font-bold font-['Poppins']" style="color:#B9375E" >Cadastre-se</h2>
-                <form action="" class="flex flex-col min-w-full">
-                    <label for="" class="text-3xl mb-4 font-['Poppins']" style="color:#B9375E" >nome completo</label>
-                    <input type="text" placeholder="digite seu nome completo" class=" placeholder:italic font-['Poppins'] text-pink-600 text-2xl border-none p-2 rounded-md outline-none" >
+                <form action="" class="flex flex-col min-w-full ">
+                    <label for="" class="text-3xl mb-4 font-['Poppins']" style="color:#B9375E" >Nome completo</label>
+                    <input type="text" placeholder="digite seu nome completo" required  class=" placeholder:italic font-['Poppins'] text-pink-600 text-2xl border-none p-2 rounded-md outline-none" >
 
-                    <label for="" class="text-3xl mb-4 mt-4 font-['Poppins']" style="color:#B9375E">e-mail</label>
-                    <input type="email" placeholder="digite seu e-mail" class=" placeholder:italic font-['Poppins'] text-2xl text-pink-600 border-none bg--100 p-2 rounded-md outline-none ">
+                    <label for="" class="text-3xl mb-4 mt-4 font-['Poppins']" style="color:#B9375E">E-mail</label>
+                    <input type="email" placeholder="digite seu e-mail"  required class=" placeholder:italic font-['Poppins'] text-2xl text-pink-600 border-none bg--100 p-2 rounded-md outline-none ">
 
-                    <label for=""class="text-3xl mb-4 mt-4 font-['Poppins']" style="color:#B9375E">senha</label>
-                    <input type="password" placeholder="digite sua senha" class="placeholder:italic font-['Poppins'] text-pink-600 text-2xl border-none  p-2 rounded-md outline-none">
+                    <label for=""class="text-3xl mb-4 mt-4 font-['Poppins']" style="color:#B9375E">Senha</label>
+                    <input type="password" placeholder="digite sua senha" required class="placeholder:italic font-['Poppins'] text-pink-600 text-2xl border-none  p-2 rounded-md outline-none">
 
-                    <label for=""class="text-3xl mb-4 mt-4 font-['Poppins']" style="color:#B9375E">usuário</label>
-                    <select name="setor" id="select" placeholder="setor" class=" placeholder:italic font-['Poppins'] text-2xl text-pink-600 border-none bg--100 p-2 rounded-md outline-none" >
+                    <label for=""class="text-3xl mb-4 mt-4 font-['Poppins']" style="color:#B9375E">Usuário</label>
+                    <select name="setor" id="select" required  class=" placeholder:italic font-['Poppins'] text-2xl text-pink-600 border-none bg--100 p-2 rounded-md outline-none" >
                         <option value=""></option>
                         <option>Administrativo</option>
                         <option>Contabilidade</option>
                         <option>Produção</option>
                         <option>Ambiental</option>
                     </select>
-                    <button class=" font-['Quicksand'] bg-green-700 hover:bg-green-900 active:bg-green-800 focus:outline-none focus:ring text-3xl mt-6 rounded-md p-2 font-bold text-white">CADASTRAR</button>
                 </form>
+                <button class=" font-['Quicksand'] bg-green-700 hover:bg-green-900 active:bg-green-800 focus:outline-none focus:ring text-3xl mt-12 rounded-md p-2 px-6 font-bold text-white">CADASTRAR</button>
             </div>
     </container>
 
