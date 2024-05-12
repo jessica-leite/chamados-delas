@@ -1,14 +1,14 @@
 var baseUrl = "http://localhost:8080/";
 
-function request(method, url){
+function request(method, path){
     let request = new XMLHttpRequest();
-    request.open(method, url, false);
+    request.open(method, baseUrl + path, false);
     request.send();
     return JSON.parse(request.responseText);
 }
 
 function getChamadosUsuario(){
-    var data = request( "GET", baseUrl + "mostrarchamados");
+    var data = request( "GET", "mostrarchamados");
     var linhas = "";
     var i = 0;
     for(i = 0; i < data.length; i++){
