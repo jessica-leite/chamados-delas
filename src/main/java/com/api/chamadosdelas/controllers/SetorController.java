@@ -18,7 +18,6 @@ public class SetorController {
         return this.setorService.save(c);
     }
 
-    @CrossOrigin(origins = "*")
     @RequestMapping(value = "/mostrarsetores", method = RequestMethod.GET)
     public List<Setor> findAll() {
         return this.setorService.findAll();

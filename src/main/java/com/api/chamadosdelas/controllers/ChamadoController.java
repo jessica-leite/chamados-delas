@@ -23,6 +23,7 @@ public class ChamadoController {
         return this.chamadoService.save(c);
     }
 
+    @CrossOrigin(origins = "*")
     @RequestMapping(value = "/mostrarchamados", method = RequestMethod.GET)
     public List<Chamado> findAll() {
         return this.chamadoService.findAll();

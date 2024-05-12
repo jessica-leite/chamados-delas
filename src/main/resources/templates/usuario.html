@@ -12,8 +12,9 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Quicksand:wght@300..700&display=swap" rel="stylesheet">
-    <link href="./static/output.css" rel="stylesheet">
+    <link href="../static/output.css" rel="stylesheet">
     <script src="https://cdn.tailwindcss.com"></script>
+    <script src="../static/main.js"></script>
 </head>
 <body>
 <header class="w-screen h-12 flex justify-center bg-[#B9375E]">
@@ -33,27 +34,27 @@
 </div>
 
 <div class="flex justify-center">
-    <table class="table-fixed bg-[#B9375E] flex justify-center h-60 w-9/12 rounded-md">
+    <table id="table" class="table-fixed bg-[#B9375E] flex justify-center h-60 w-9/12 rounded-md">
         <tr class="font-['Quicksand'] items-center no-wrap mx-5 text-xs mt-5 px-5 gap-12 flex justify-between text-[#B9375E] bg-[#FFE0E9] rounded-md h-8 w-8/8">
             <td><button class="font-['Quicksand'] font-bold mr-5 bg-[#800E13] hover:bg-[#38040E] active:bg-[#800E13] focus:outline-none focus:ring rounded-md text-white py-1 px-2 mt-1">X</button></td>
             <td><button class=" font-['Quicksand'] bg-green-700 hover:bg-green-900 active:bg-green-800 focus:outline-none focus:ring text-1xl mt-1 rounded-md p-1 px-2 font-bold text-white">EDITAR</button></td>
-            <td class="truncate">descrição do chamado</td>
+            <td id="titulo"></td>
             <td>
-                <select class="rounded-md">
+                <select id="prioridade" class="rounded-md">
                     <option value="baixa">baixa</option>
                     <option value="media">média</option>
                     <option value="alta">alta</option>
                 </select>
             </td>
-            <td>2024-05-09</td>
+            <td id="data">2024-05-09</td>
             <td>
-                <select class="rounded-md">
+                <select id="setor" class="rounded-md">
                     <option value="informatica">informática</option>
                     <option value="rh">recursos humanos</option>
                     <option value="marketing">marketing</option>
                 </select>
             </td>
-            <td class="truncate bg-white rounded-md">aguardando técnico</td>
+            <td id="status" class="truncate bg-white rounded-md">aguardando técnico</td>
         </tr>
         <tr class="font-['Quicksand'] items-center no-wrap mx-5 text-xs mt-5 px-5 gap-12 flex justify-between text-[#B9375E] bg-[#FFE0E9] rounded-md h-8 w-8/8">
             <td><button class="font-['Quicksand'] font-bold mr-5 bg-[#800E13] hover:bg-[#38040E] active:bg-[#800E13] focus:outline-none focus:ring rounded-md text-white py-1 px-2 mt-1">X</button></td>
