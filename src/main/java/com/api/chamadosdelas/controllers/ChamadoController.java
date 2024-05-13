@@ -4,12 +4,13 @@ import com.api.chamadosdelas.models.Chamado;
 
 import com.api.chamadosdelas.services.ChamadoService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 import java.time.LocalDateTime;
 import java.util.List;
 
-
+@CrossOrigin(origins = "*")
 @RestController
 public class ChamadoController {
 
@@ -23,7 +24,6 @@ public class ChamadoController {
         return this.chamadoService.save(c);
     }
 
-    @CrossOrigin(origins = "*")
     @RequestMapping(value = "/mostrarchamados", method = RequestMethod.GET)
     public List<Chamado> findAll() {
         return this.chamadoService.findAll();
@@ -35,8 +35,9 @@ public class ChamadoController {
     }
 
     @RequestMapping(value = "/excluirchamado/{id}", method = RequestMethod.DELETE)
-    public String deleteChamado(@PathVariable("id") int id) {
-        return this.chamadoService.deleteById(id);
+    public ResponseEntity<Object> deleteChamado(@PathVariable("id") int id) {
+        this.chamadoService.deleteById(id);
+        return ResponseEntity.noContent().build();
     }
 
     @RequestMapping(value = "/alterarchamado/{id}", method = RequestMethod.PUT)
