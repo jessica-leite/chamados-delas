@@ -24,6 +24,11 @@ public class ChamadoService {
         return chamados;
     }
 
+    public List<Chamado> findByUsuarioId(int id){
+        List<Chamado> chamados = this.chamadoRepository.findByUsuarioId(id);
+        return chamados;
+    }
+
     public Chamado findById(int id){
         Optional<Chamado> resultado = this.chamadoRepository.findById(id);
         if (resultado.isEmpty()) {

@@ -19,6 +19,27 @@ public class ViewController {
     public String renderizaLogin() {
         return "login";
     }
+
+    @RequestMapping(value = "/usuario", method = RequestMethod.GET)
+    public String renderizaUsuario() {
+        return "usuario";
+    }
+
+    @RequestMapping(value = "/cadastro-chamado", method = RequestMethod.GET)
+    public String renderizaCriarChamado() {
+        return "cadastro-chamado";
+    }
+
+    @RequestMapping(value = "/atualizar-chamado", method = RequestMethod.GET)
+    public String renderizaAtualizarChamado() {
+        return "atualizar-chamado";
+    }
+
+    @RequestMapping(value = "/atualizar-usuario", method = RequestMethod.GET)
+    public String renderizaAtualizarUsuario() {
+        return "atualizar-usuario";
+    }
+
     @RequestMapping(value = "/tela-usuario", method = RequestMethod.GET)
     public String renderizaTelaUsuario() {
         return "usuario";
@@ -28,8 +49,4 @@ public class ViewController {
     public String renderizaTelaTecnico() {
         return "tela-tecnico";
     }
-
-
-
-
 }
