@@ -29,6 +29,11 @@ public class ChamadoController {
         return this.chamadoService.findAll();
     }
 
+    @RequestMapping(value = "/mostrarchamados/{id}", method = RequestMethod.GET)
+    public List<Chamado> findByUsuarioId(@PathVariable int id) {
+        return this.chamadoService.findByUsuarioId(id);
+    }
+
     @RequestMapping(value = "/mostrarchamado/{id}", method = RequestMethod.GET)
     public Chamado findById(@PathVariable int id) {
         return this.chamadoService.findById(id);
