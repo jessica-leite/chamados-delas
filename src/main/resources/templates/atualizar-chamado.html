@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dashboard Técnico</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+            href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap"
+            rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Quicksand:wght@300..700&display=swap" rel="stylesheet">
+    <link href="./output.css" rel="stylesheet">
+    <script src="https://cdn.tailwindcss.com"></script>
+</head>
+<body>
+<header class="w-screen h-38 flex justify-center bg-[#B9375E]">
+    <img class="h-12 p-2" src="/assets/logo-branco-header.png">
+</header>
+<div class="flex justify-between">
+    <h2 class="font-['Quicksand'] mt-10 ml-10 text-3xl text-[#B9375E]">
+        Olá, <span class="font-bold">nomeUsuario, </span>
+        edite o chamado
+    </h2>
+    <button OnClick=" location.href='usuario' " class="font-['Quicksand'] font-bold mr-10 bg-[#800E13] hover:bg-[#38040E] active:bg-[#800E13] focus:outline-none focus:ring rounded-md text-white py-2 px-4 mt-10">CANCELAR</button>
+</div>
+<div class="flex justify-center">
+    <div class="font-['Quicksand'] flex-direction-column h-40 w-4/6 m-5 rounded-md bg-[#FFE0E9]">
+        <h2 class="font-['Quicksand'] mt-3 ml-5 text-lg font-semibold text-[#B9375E]">Título</h2>
+        <div class="flex justify-start mt-2 ml-5 mr-5">
+            <input type="text" placeholder="digite o título do chamado" class=" placeholder:italic font-['Poppins'] text-xs text-pink-600 border-none bg--100 p-2 rounded-md outline-none h-9 w-full">
+        </div>
+        <div class="flex justify-end">
+            <button class="font-['Quicksand'] font-bold mr-5 bg-[#155D27] hover:bg-[#38040E] active:bg-[#800E13] focus:outline-none focus:ring rounded-md text-white py-1 px-3 mt-5">ENVIAR</button>
+        </div>
+    </div>
+</div>
+</body>
+</html>
