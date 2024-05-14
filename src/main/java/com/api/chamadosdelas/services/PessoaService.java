@@ -64,6 +64,10 @@ public class PessoaService {
             throw new UsuarioNaoEncontradoExcecao();
         }
 
+        if(registro.get().getTipo().contentEquals("aguardando autorizacao")){
+            throw new PessoaExistenteExcecao();
+        }
+
         // Compara senha enviada com a senha salva no banco, caso seja diferente lança exceção.
         Pessoa pessoa = registro.get();
         boolean senhaCorreta = this.passwordEncoder.matches(authDTO.getSenha(), pessoa.getSenha());
