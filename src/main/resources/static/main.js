@@ -88,3 +88,44 @@ function getFormData(form){
 
     return formData = Object.fromEntries(inputs);
 }
+
+function getChamadosTecnico(){
+var chamados = request( "GET", "mostrarchamados");
+    var linhas = "";
+    var i = 0;
+    for(i = 0; i < chamados.length; i++){
+    var data = new Date(chamados[i].dataInicio);
+    var dataFormatada = data.getDate() + '-' + (data.getMonth() + 1) + '-' + data.getFullYear();
+
+        linhas += ' <tr class="font-['+'Quicksand'+'] items-center no-wrap mx-5 text-xs mt-5 px-5 gap-12 flex justify-between text-[#B9375E] bg-[#FFE0E9] rounded-md h-8 w-8/8">'
+                                                     + '<td>' + chamados[i].id + '</td>'
+                                                     +'<td class="truncate">'+ chamados[i].titulo + '</td>'
+                                                     +'<td>'
+                                                     +    '<select class="rounded-md">'
+                                                     +       '<option value="baixa">baixa</option>'
+                                                     +        '<option value="media">média</option>'
+                                                     +        '<option value="alta">alta</option>'
+                                                     +    '</select>'
+                                                     +'</td>'
+                                                     +'<td>'+ dataFormatada + '</td>'
+                                                     +'<td>'
+                                                     +'    <select class="rounded-md">'
+                                                     +'        <option value="informatica">informática</option>'
+                                                     +'        <option value="rh">recursos humanos</option>'
+                                                     +'        <option value="marketing">marketing</option>'
+                                                     +'    </select>'
+                                                     +'</td>'
+                                                     +'<td>'
+                                                     +'    <select class="rounded-md">'
+                                                     +'        <option value="aguardando">aguardando técnico</option>'
+                                                     +'        <option value="atendimento">em atendimento</option>'
+                                                     +'        <option value="outrosetor">escalado para outro setor</option>'
+                                                     +'        <option value="finalizado">finalizado</option>'
+                                                     +'    </select>'
+                                                     +'</td>'
+                                                 +'</tr>';
+
+
+    }
+    document.getElementById("tableTecnico").innerHTML = linhas;
+}
