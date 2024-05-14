@@ -2,7 +2,7 @@ package com.api.chamadosdelas.controllers;
 
 import com.api.chamadosdelas.dto.AuthDTO;
 import com.api.chamadosdelas.dto.PessoaDTO;
-import com.api.chamadosdelas.dto.PessoaTipoDTO;
+import com.api.chamadosdelas.dto.LoginDTO;
 import com.api.chamadosdelas.models.Pessoa;
 import com.api.chamadosdelas.models.Setor;
 import com.api.chamadosdelas.services.PessoaService;
@@ -14,7 +14,6 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
-import java.util.Optional;
 
 @RestController
 @RequestMapping("/pessoa")
@@ -53,8 +52,8 @@ public class PessoaController {
         // Tenta Logar pessoa, caso de ceto retorna um Token.
         // Caso contrario, retorna erro 401(UNAUTHORIZED)
         try {
-            String token = this.pessoaService.autenticarUsuario(authDTO);
-            return ResponseEntity.ok(token);
+            LoginDTO loginDto = this.pessoaService.autenticarUsuario(authDTO);
+            return ResponseEntity.ok(loginDto);
         } catch (Exception e) {
             return ResponseEntity.status(HttpStatus.UNAUTHORIZED).body(e.getMessage());
         }
