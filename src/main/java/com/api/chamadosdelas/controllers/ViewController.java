@@ -49,4 +49,9 @@ public class ViewController {
     public String renderizaTelaTecnico() {
         return "tela-tecnico";
     }
+
+    @RequestMapping(value = "/atualizar-tecnico", method = RequestMethod.GET)
+    public String renderizaAtualizarTecnico() {
+        return "atualizar-tecnico";
+    }
 }
