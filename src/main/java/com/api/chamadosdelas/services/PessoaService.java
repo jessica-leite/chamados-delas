@@ -1,6 +1,7 @@
 package com.api.chamadosdelas.services;
 
 import com.api.chamadosdelas.dto.AuthDTO;
+import com.api.chamadosdelas.dto.LoginDTO;
 import com.api.chamadosdelas.exceptions.AutenticacaoExcecao;
 import com.api.chamadosdelas.exceptions.PessoaExistenteExcecao;
 import com.api.chamadosdelas.exceptions.UsuarioNaoEncontradoExcecao;
@@ -49,13 +50,13 @@ public class PessoaService {
         pessoa.setEmail(email);
         pessoa.setNome(nome);
         pessoa.setSenha(novaSenha);
-        pessoa.setTipo(Objects.equals(tipo, "tecnico") ? "aguardando autorizacao" : "usuario");
+        pessoa.setTipo(Objects.equals(tipo, "Técnico") ? "Aguardando Autorização" : "Usuário");
         pessoa.setSetor(setor);
 
         return this.pessoaRepository.save(pessoa);
     }
 
-    public String autenticarUsuario(AuthDTO authDTO) {
+    public LoginDTO autenticarUsuario(AuthDTO authDTO) {
 
         // busca pessoa no banco atraves do email, senão achar lança excecão.
         Optional<Pessoa> registro = this.pessoaRepository.findByEmail(authDTO.getEmail());
@@ -75,9 +76,11 @@ public class PessoaService {
         //Gera o Token.
         Algorithm algorithm = Algorithm.HMAC256(secretKey);
 
-        return JWT.create().withIssuer("chamadosdelas")
+        String token = JWT.create().withIssuer("chamadosdelas")
                 .withExpiresAt(Instant.now().plus(Duration.ofHours(2)))
                 .withSubject(String.valueOf(pessoa.getId())).sign(algorithm);
+
+        return new LoginDTO(token, pessoa.getTipo());
     }
 
     public List<Pessoa> findByTipo(String tipo) {
