@@ -54,4 +54,12 @@ public class ViewController {
     public String renderizaAtualizarTecnico() {
         return "atualizar-tecnico";
     }
+
+    @RequestMapping(value = "/administrador", method = RequestMethod.GET)
+    public String renderizaAdministrador() {
+        return "administrador";
+    }
+
+    @RequestMapping(value = "/cadastro-setor", method = RequestMethod.GET)
+    public String renderizaCadastroSetor() {return "cadastro-setor";}
 }
