@@ -18,7 +18,7 @@
     <script src="main.js"></script>
 </head>
 
-<body class="flex  items-center h-screen" >
+<body onload="getSetores()" class="flex  items-center h-screen" >
     <container class="w-full h-full flex justify-center items-center">
         <img src="/assets/logo-principal.png" alt="">
     </container>
@@ -36,12 +36,9 @@
                     <input name="senha" type="password" placeholder="digite sua senha" required class="placeholder:italic font-['Poppins'] text-pink-600 text-2xl border-none  p-2 rounded-md outline-none">
 
                     <label class="text-3xl mb-4 mt-4 font-['Poppins']" style="color:#B9375E">Setor</label>
-                    <select name="setor" id="select=setor" required  class=" placeholder:italic font-['Poppins'] text-2xl text-pink-600 border-none bg--100 p-2 rounded-md outline-none" >
+                    <select name="setor" id="select-setor" required  class=" placeholder:italic font-['Poppins'] text-2xl text-pink-600 border-none bg--100 p-2 rounded-md outline-none" >
                         <option value=""></option>
-                        <option>Administrativo</option>
-                        <option>Contabilidade</option>
-                        <option>Produção</option>
-                        <option>Ambiental</option>
+
                     </select>
                     <label class="text-3xl mb-4 mt-4 font-['Poppins']" style="color:#B9375E">Pessoa</label>
                     <select name="tipo" id="select-tipo" required  class=" placeholder:italic font-['Poppins'] text-2xl text-pink-600 border-none bg--100 p-2 rounded-md outline-none" >
