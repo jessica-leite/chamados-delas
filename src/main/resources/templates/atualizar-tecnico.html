@@ -14,29 +14,31 @@
     <script src="https://cdn.tailwindcss.com"></script>
 </head>
 <body>
-<h1 class="font-poppins">Editar informações do <span class="font-bold">técnico</span></h1>
-<button><a href="#">CANCELAR</a></button>
-<container class="">
-    <form action="#" method="post">
-        <label>Nome completo</label>
-        <input type="text" placeholder="digite seu nome completo" required>
+<div class="flex justify-between">
+    <h1 class="font-['Poppins'] text-[#B9375E] mt-10 ml-10 text-3xl">Editar informações do <span class="font-bold">técnico</span></h1>
+    <button class="font-['Quicksand'] font-bold mr-10 bg-[#800E13] hover:bg-[#38040E] active:bg-[#800E13] focus:outline-none focus:ring rounded-md text-white py-2 px-4 mt-10"><a href="#">CANCELAR</a></button>
+</div>
+<container class="font-['Quicksand'] flex justify-center w-10/12">
+    <form action="#" method="post" class="bg-[#FFE0E9] rounded-md mt-10 w-10/12 flex flex-col">
+            <label class="text-[#B9375E]">Nome completo</label>
+            <input class="rounded-md" type="text" placeholder="digite seu nome completo" required>
 
-        <label>E-mail</label>
-        <input type="text" placeholder="digite seu e-mail" required>
+            <label class="text-[#B9375E]">E-mail</label>
+            <input class="rounded-md" type="text" placeholder="digite seu e-mail" required>
 
-        <label>Nova senha</label>
-        <input type="password" placeholder="digite sua nova senha" required>
+            <label class="text-[#B9375E]">Nova senha</label>
+            <input class="rounded-md" type="password" placeholder="digite sua nova senha" required>
 
-        <label for="escolha">Setor:</label>
-        <select id="escolha" name="escolha">
-            <option value="opcao1">Opção 1</option>
-            <option value="opcao2">Opção 2</option>
-            <option value="opcao3">Opção 3</option>
-            <option value="opcao4">Opção 4</option>
-        </select>
+            <label class="text-[#B9375E]" for="escolha">Setor:</label>
+            <select class="rounded-md" id="escolha" name="escolha">
+                <option value="opcao1">Opção 1</option>
+                <option value="opcao2">Opção 2</option>
+                <option value="opcao3">Opção 3</option>
+                <option value="opcao4">Opção 4</option>
+            </select>
 
-        <div>
-            <button type="submit">SALVAR</button>
+        <div class="flex justify-end">
+            <button type="submit" class="font-bold mr-5 bg-[#155D27] hover:bg-[#10451D] active:bg-[#800E13] focus:outline-none focus:ring rounded-md text-white py-1 px-3 mt-5 mb-6">SALVAR</button>
         </div>
     </form>
 </container>

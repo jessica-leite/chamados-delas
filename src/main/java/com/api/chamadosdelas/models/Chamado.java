@@ -21,7 +21,7 @@ public class Chamado {
     private LocalDateTime dataInicio;
 
     @Column
-    private int prioridade;
+    private PrioridadeEnum prioridade;
 
     @ManyToOne
     @JoinColumn(name = "tecnico_id")
@@ -70,11 +70,11 @@ public class Chamado {
         this.dataInicio = dataInicio;
     }
 
-    public int getPrioridade() {
+    public PrioridadeEnum getPrioridade() {
         return prioridade;
     }
 
-    public void setPrioridade(int prioridade) {
+    public void setPrioridade(PrioridadeEnum prioridade) {
         this.prioridade = prioridade;
     }
 
