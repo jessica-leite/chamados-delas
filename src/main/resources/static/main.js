@@ -9,8 +9,8 @@ function request(method, path, data){
     return response ? JSON.parse(request.responseText) : request.responseText;
 }
 
-function getChamadosUsuario(){
-    var chamados = request( "GET", "mostrarchamados");
+function getChamadosUsuario(id){
+    var chamados = request( "GET", "mostrarchamados/" + id);
     var linhas = "";
     var i = 0;
     for(i = 0; i < chamados.length; i++){
@@ -30,6 +30,7 @@ function getChamadosUsuario(){
 
     }
     document.getElementById("table").innerHTML = linhas;
+    document.getElementById("nomeUsuario").innerHTML = chamados[0].usuario.nome;
 }
 
 function excluirChamado(id){
