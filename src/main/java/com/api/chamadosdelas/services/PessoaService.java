@@ -84,7 +84,7 @@ public class PessoaService {
                 .withExpiresAt(Instant.now().plus(Duration.ofHours(2)))
                 .withSubject(String.valueOf(pessoa.getId())).sign(algorithm);
 
-        return new LoginDTO(token, pessoa.getTipo());
+        return new LoginDTO(token, pessoa.getTipo(), pessoa.getId());
     }
 
     public List<Pessoa> findByTipo(String tipo) {
