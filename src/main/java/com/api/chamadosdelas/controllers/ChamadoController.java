@@ -2,12 +2,15 @@ package com.api.chamadosdelas.controllers;
 
 import com.api.chamadosdelas.models.Chamado;
 
+import com.api.chamadosdelas.models.PrioridadeEnum;
+import com.api.chamadosdelas.models.StatusEnum;
 import com.api.chamadosdelas.services.ChamadoService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 import java.time.LocalDateTime;
+import java.util.Arrays;
 import java.util.List;
 
 @CrossOrigin(origins = "*")
@@ -48,6 +51,16 @@ public class ChamadoController {
     @RequestMapping(value = "/alterarchamado/{id}", method = RequestMethod.PUT)
     public Chamado updateById(@PathVariable int id, @RequestBody Chamado c) {
         return this.chamadoService.updateById(id, c);
+    }
+
+    @RequestMapping(value = "/prioridades", method = RequestMethod.GET)
+    public List<PrioridadeEnum> getPrioridades() {
+        return Arrays.asList(PrioridadeEnum.values());
+    }
+
+    @RequestMapping(value = "/status", method = RequestMethod.GET)
+    public List<String> getStatus() {
+        return StatusEnum.getAllNames();
     }
 }
 
