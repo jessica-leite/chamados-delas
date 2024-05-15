@@ -134,3 +134,12 @@ var chamados = request( "GET", "mostrarchamados");
     }
     document.getElementById("tableTecnico").innerHTML = linhas;
 }
+
+function getSetores(){
+    var setores = request("GET", "mostrarsetores");
+    var linhas = '<option value = ""></option>';
+    for(i = 0; i < setores.length; i++){
+        linhas += '<option value = "' + setores[i].id +'">' + setores[i].nome +'</option>';
+    }
+    document.getElementById("select-setor").innerHTML = linhas;
+}
