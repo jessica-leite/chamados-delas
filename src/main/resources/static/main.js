@@ -36,7 +36,6 @@ function cadastrarPessoa(formulario){
 
 function logarPessoa(formulario){
     const dadosFormulario = getFormData(formulario);
-    console.log(dadosFormulario);
     const response = request("POST", "pessoa/login", dadosFormulario);
     console.log(response);
 
