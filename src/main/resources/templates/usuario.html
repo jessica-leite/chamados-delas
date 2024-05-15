@@ -14,7 +14,7 @@
     <link href="https://fonts.googleapis.com/css2?family=Quicksand:wght@300..700&display=swap" rel="stylesheet">
     <link href="./output.css" rel="stylesheet">
     <script src="https://cdn.tailwindcss.com"></script>
-    <script src="./main.js"></script>
+    <script src="main.js"></script>
 </head>
 <body onload="getChamadosUsuario()">
 <header class="w-screen h-12 flex justify-center bg-[#B9375E]">
@@ -23,7 +23,7 @@
 
 <div class="flex justify-between">
     <h1 class="font-['Quicksand'] mt-10 ml-10 text-3xl text-[#B9375E]">Olá, <span class="font-bold">nomeUsuario</span></h1>
-    <button OnClick=" location.href='login' " class="font-['Quicksand'] font-bold mr-10 bg-[#800E13] hover:bg-[#38040E] active:bg-[#800E13] focus:outline-none focus:ring rounded-md text-white py-2 px-4 mt-10">SAIR</button>
+    <button type="button" onclick="logout()"  class="font-['Quicksand'] font-bold mr-10 bg-[#800E13] hover:bg-[#38040E] active:bg-[#800E13] focus:outline-none focus:ring rounded-md text-white py-2 px-4 mt-10">SAIR</button>
 </div>
 <div class=" items-center">
     <button OnClick=" location.href='atualizar-usuario' " class=" font-['Quicksand'] ml-10 bg-[#B9375E] text-1xl mt-10 rounded-md p-2 px-3 font-bold text-white">EDITAR CADASTRO</button>
