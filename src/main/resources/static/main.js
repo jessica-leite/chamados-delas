@@ -80,6 +80,11 @@ function logarPessoa(formulario){
     }
 }
 
+function logout(){
+    localStorage.removeItem('token');
+    window.location.href = '/login';
+}
+
 function getFormData(form){
     const inputs = Array
          .from(form.children)
