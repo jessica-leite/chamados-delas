@@ -41,9 +41,9 @@ function excluirChamado(id){
 function excluirPessoa(){
     console.log("entrei no excluir pessoa")
     const id = localStorage.getItem("pessoaId");
-    request( "DELETE", "/pessoa/excluir/" + id);
+    request( "DELETE", "pessoa/excluir/" + id);
     localStorage.clear();
-    location.href="/index";
+    location.href="/cadastro";
 }
 
 function cadastrarPessoa(formulario){
