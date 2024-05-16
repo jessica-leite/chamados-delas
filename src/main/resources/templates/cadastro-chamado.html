@@ -30,20 +30,20 @@
     <button onclick="history.back()" class="font-['Quicksand'] font-bold mr-10 bg-[#800E13] hover:bg-[#38040E] active:bg-[#800E13] focus:outline-none focus:ring rounded-md text-white py-2 px-4 mt-10">CANCELAR</button>
 </div>
 
-<form class="ml-10" action="javascript:;" onsubmit="cadastrarChamado(this)" id="form-cadastro">
+<form class="ml-10 font-['Quicksand'] rounded-md bg-[#FFE0E9] w-4/6 p-8 mt-5 flex flex-col gap-4" action="javascript:;" onsubmit="cadastrarChamado(this)" id="form-cadastro">
     <!--  <div class="font-['Quicksand'] p-5 flex-direction-column h-1/5 w-4/6 mt-5 rounded-md bg-[#FFE0E9]"> -->
-    <label class="font-['Quicksand'] ml-5 text-lg text-[#B9375E]">Título do <span class="font-bold">chamado</span></label>
+    <label class="font-['Quicksand'] text-lg text-[#B9375E]">Título do <span class="font-bold">chamado</span></label>
     <!--    <div class="flex justify-start mt-2 ml-5 mr-5"> -->
     <input name="titulo" type="text" placeholder="digite o título do chamado" class="placeholder:italic font-['Poppins'] text-xs text-[#B9375E] border-none bg--100 p-2 rounded-md outline-none h-9 w-full" required>
     <!-- </div> -->
 
-    <label class="font-['Quicksand'] ml-5 text-lg text-[#B9375E]">Conte o que está <span class="font-bold">acontecendo</span></label>
+    <label class="font-['Quicksand'] text-lg text-[#B9375E]">Conte o que está <span class="font-bold">acontecendo</span></label>
     <!--    <div class="flex justify-start mt-2 ml-5 mr-5"> -->
     <input name="descricao" type="text" placeholder="digite a descrição do chamado" class="placeholder:italic font-['Poppins'] text-xs text-[#B9375E] border-none bg--100 p-2 rounded-md outline-none h-9 w-full" required>
     <!--      </div> -->
 
     <!--    <div class="ml-5 mt-3"> -->
-    <label class="text-[#B9375E] flex text-lg mb-2" for="select-prioridade">Selecione a <span class="font-bold ml-1.5">prioridade:</span></label>
+    <label class="text-[#B9375E] flex text-lg" for="select-prioridade">Selecione a <span class="font-bold ml-1.5">prioridade:</span></label>
     <select name="prioridade" id="select-prioridade" class="rounded-md text-[#B9375E] text-lg w-3/12" >
 
     </select>
@@ -55,7 +55,10 @@
     <!--    </div> -->
 
 </form>
-<button type="submit" form="form-cadastro" value="Submit" class="font-['Quicksand'] font-bold mr-5 bg-[#155D27] hover:bg-[#10451D] active:bg-[#800E13] focus:outline-none focus:ring rounded-md text-white py-1 px-3 mt-5">ENVIAR</button>
+<div class="w-8/12 flex justify-end ml-9">
+    <button type="submit" form="form-cadastro" value="Submit" class="font-['Quicksand'] font-bold bg-[#155D27] hover:bg-[#10451D] active:bg-[#800E13] focus:outline-none focus:ring rounded-md text-white py-1 px-3 mt-5">ENVIAR</button>
+</div>
+
 
 </body>
 </html>
