@@ -9,8 +9,8 @@ function request(method, path, data){
     return response ? JSON.parse(request.responseText) : request.responseText;
 }
 
-function getChamadosUsuario(id){
-    var chamados = request( "GET", "mostrarchamados/" + id);
+function getChamadosUsuario(){
+    var chamados = request( "GET", "mostrarchamados/" + localStorage.getItem("pessoaId"));
     var linhas = "";
     var i = 0;
     for(i = 0; i < chamados.length; i++){
@@ -50,6 +50,15 @@ function cadastrarPessoa(formulario){
     window.location.href = '/login';
 }
 
+function cadastrarChamado(formulario){
+    console.log(formulario);
+    const chamado = getFormData(formulario);
+    console.log(chamado);
+    //request("POST", "cadchamado", chamado);
+    //alert("Cadastro feito com sucesso!");
+    //window.location.href = '/tela-usuario'
+}
+
 function logarPessoa(formulario){
     const dadosFormulario = getFormData(formulario);
     const response = request("POST", "pessoa/login", dadosFormulario);
@@ -65,6 +74,7 @@ function logarPessoa(formulario){
 
     localStorage.setItem("token", response.token);
     localStorage.setItem("nome", response.nome);
+    localStorage.setItem("pessoaId", response.id);
 
     switch(response.tipo) {
         case 'Admin':
