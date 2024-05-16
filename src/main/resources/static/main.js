@@ -9,8 +9,8 @@ function request(method, path, data){
     return response ? JSON.parse(request.responseText) : request.responseText;
 }
 
-function getChamadosUsuario(id){
-    var chamados = request( "GET", "mostrarchamados/" + id);
+function getChamadosUsuario(){
+    var chamados = request( "GET", "mostrarchamados/" + localStorage.getItem("pessoaId"));
     var linhas = "";
     var i = 0;
     for(i = 0; i < chamados.length; i++){
@@ -51,10 +51,19 @@ function cadastrarPessoa(formulario){
 }
 function atualizarPessoa(formulario){
     const dadosFormulario = getFormData(formulario);
-    const id = localStorage.getItem("id");
+    const id = localStorage.getItem("pessoaId");
     request("POST", "pessoa/atualizar/" + id, dadosFormulario);
     alert("Atualização feita com sucesso!");
     window.location.href = '/login';
+}
+
+function cadastrarChamado(formulario){
+    console.log(formulario);
+    const chamado = getFormData(formulario);
+    console.log(chamado);
+    //request("POST", "cadchamado", chamado);
+    //alert("Cadastro feito com sucesso!");
+    //window.location.href = '/tela-usuario'
 }
 
 function logarPessoa(formulario){
@@ -72,7 +81,7 @@ function logarPessoa(formulario){
 
     localStorage.setItem("token", response.token);
     localStorage.setItem("nome", response.nome);
-    localStorage.setItem("id", response.id);
+    localStorage.setItem("pessoaId", response.id);
 
     switch(response.tipo) {
         case 'Admin':
@@ -154,5 +163,14 @@ function getSetores(){
         linhas += '<option value = "' + setores[i].id +'">' + setores[i].nome +'</option>';
     }
     document.getElementById("select-setor").innerHTML = linhas;
+}
 
+function getPrioridades(){
+ var prioridades = request("GET", "prioridades");
+ var linhas = "";
+     for(i = 0; i < prioridades.length; i++){
+         linhas += '<option value = "' + prioridades[i] +'">' + prioridades[i] +'</option>';
+     }
+     document.getElementById("select-prioridade").innerHTML = linhas;
+     document.getElementById("nomePessoa").innerHTML = localStorage.getItem("nome");
 }
