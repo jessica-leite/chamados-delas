@@ -120,7 +120,7 @@ function cadastrarChamado(formulario){
     console.log(formulario);
     const chamado = getFormData(formulario);
     console.log(chamado);
-    request("POST", "cadchamado", chamado);
+    request("POST", "cadchamado/" + localStorage.getItem("pessoaId"), chamado);
     alert("Cadastro feito com sucesso!");
     window.location.href = '/tela-usuario'
 }
