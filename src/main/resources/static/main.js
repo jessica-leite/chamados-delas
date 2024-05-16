@@ -83,7 +83,7 @@ function excluirPessoa(){
 }
 
 function excluirCadastroId(id){
-    request( "DELETE", "pessoa/excluirpessoa/" + id);
+    request( "DELETE", "pessoa/excluir/" + id);
     alert("Cadastro excluído!")
      document.getElementById(id).remove();
 }
