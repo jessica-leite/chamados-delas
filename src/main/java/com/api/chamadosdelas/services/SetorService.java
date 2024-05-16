@@ -1,8 +1,8 @@
 package com.api.chamadosdelas.services;
 
-import com.api.chamadosdelas.models.Chamado;
 import com.api.chamadosdelas.models.Setor;
 import com.api.chamadosdelas.repositories.SetorRepository;
+import jakarta.persistence.EntityNotFoundException;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -33,9 +33,14 @@ public class SetorService {
         }
     }
 
-    public  String deleteById(int id){
-        setorRepository.deleteById(id);
-        return "Setor com ID " + id + " excluído com sucesso!";
+    public  void deleteById(int id){
+        Optional<Setor> setor = this.setorRepository.findById(id);
+
+        if (setor.isEmpty()) {
+            throw new EntityNotFoundException();
+        }
+
+        this.setorRepository.delete(setor.get());
     }
 
     public Setor updateById(int id, Setor c){
