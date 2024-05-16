@@ -61,14 +61,6 @@ function getChamadosUsuario(){
     document.getElementById("nomePessoa").innerHTML = localStorage.getItem("nome");
 }
 
-function getChamado(id){
- var chamado = request( "GET", "mostrarchamado/" + id);
-document.getElementById("titulo").innerHTML = chamado.titulo;
-document.getElementById("descricao").innerHTML = chamado.descricao;
-document.getElementById("prioridade").value = chamado.prioridade;
- document.getElementById("nomePessoa").innerHTML = localStorage.getItem("nome");
-}
-
 function excluirChamado(id){
     request( "DELETE", "excluirchamado/" + id);
     document.getElementById(id).remove();
