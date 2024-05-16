@@ -61,9 +61,9 @@ function cadastrarChamado(formulario){
     console.log(formulario);
     const chamado = getFormData(formulario);
     console.log(chamado);
-    //request("POST", "cadchamado", chamado);
-    //alert("Cadastro feito com sucesso!");
-    //window.location.href = '/tela-usuario'
+    request("POST", "cadchamado", chamado);
+    alert("Cadastro feito com sucesso!");
+    window.location.href = '/tela-usuario'
 }
 
 function logarPessoa(formulario){
