@@ -38,9 +38,12 @@ function excluirChamado(id){
     document.getElementById(id).remove();
 }
 
-function excluirCadastro(){
-    //request( "DELETE", "excluirpessoa/" + id);
-    location.href="login";
+function excluirPessoa(){
+    console.log("entrei no excluir pessoa")
+    const id = localStorage.getItem("pessoaId");
+    request( "DELETE", "/pessoa/excluir/" + id);
+    localStorage.clear();
+    location.href="/index";
 }
 
 function cadastrarPessoa(formulario){
