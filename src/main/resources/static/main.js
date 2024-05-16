@@ -9,8 +9,8 @@ function request(method, path, data){
     return response ? JSON.parse(request.responseText) : request.responseText;
 }
 
-function getChamadosUsuario(){
-    var chamados = request( "GET", "mostrarchamados");
+function getChamadosUsuario(id){
+    var chamados = request( "GET", "mostrarchamados/" + id);
     var linhas = "";
     var i = 0;
     for(i = 0; i < chamados.length; i++){
@@ -30,6 +30,7 @@ function getChamadosUsuario(){
 
     }
     document.getElementById("table").innerHTML = linhas;
+    document.getElementById("nomeUsuario").innerHTML = chamados[0].usuario.nome;
 }
 
 function excluirChamado(id){
@@ -51,7 +52,6 @@ function cadastrarPessoa(formulario){
 
 function logarPessoa(formulario){
     const dadosFormulario = getFormData(formulario);
-    console.log(dadosFormulario);
     const response = request("POST", "pessoa/login", dadosFormulario);
     console.log(response);
 
@@ -78,6 +78,11 @@ function logarPessoa(formulario){
         default:
             alert("Tipo de pessoa inválido!");
     }
+}
+
+function logout(){
+    localStorage.removeItem('token');
+    window.location.href = '/login';
 }
 
 function getFormData(form){
@@ -128,4 +133,13 @@ var chamados = request( "GET", "mostrarchamados");
 
     }
     document.getElementById("tableTecnico").innerHTML = linhas;
+}
+
+function getSetores(){
+    var setores = request("GET", "mostrarsetores");
+    var linhas = '<option value = ""></option>';
+    for(i = 0; i < setores.length; i++){
+        linhas += '<option value = "' + setores[i].id +'">' + setores[i].nome +'</option>';
+    }
+    document.getElementById("select-setor").innerHTML = linhas;
 }
