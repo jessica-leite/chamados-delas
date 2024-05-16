@@ -57,4 +57,5 @@ public class ViewController {
 
     @RequestMapping(value = "/cadastro-setor", method = RequestMethod.GET)
     public String renderizaCadastroSetor() {return "cadastro-setor";}
+
 }
