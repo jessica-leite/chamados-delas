@@ -2,7 +2,7 @@
 <html lang="en" xmlns:display="http://www.w3.org/1999/xhtml">
 <head>
     <meta charset="UTF-8">
-    <title>Administrador</title>
+    <title>Dashboard administrador</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Login</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -18,34 +18,38 @@
     <script src="main.js"></script>
 </head>
 <body onload="getChamadosTecnico()">
+
 <header class="w-screen h-38 flex justify-center bg-[#B9375E]">
     <img class="h-12 p-2" src="/assets/logo-branco-header.png">
 </header>
+
 <div class="flex justify-between">
-    <h1 class=" ml-[200px] font-['Quicksand'] text-4xl ml-10 mt-10 " style="color:#B9375E">Olá, <span id="nomePessoa" class="font-bold"></span></h1>
-    <button  OnClick=" location.href='login' " class="mr-[65px]  w-[12px] h-10 font-['Quicksand'] bg-[#800E13] hover:bg-[#38040E] active:bg-[#800E13] focus:outline-none focus:ring text-xl mt-[40px] rounded-md px-[55px] py-1 font-bold text-white flex items-center justify-center">SAIR</button>
+    <h1 class=" ml-10 font-['Quicksand'] text-3xl mt-10 text-[#B9375E]">Olá, <span class="font-bold">nomeadm</span></h1>
+    <button  OnClick="logout()" class="font-['Quicksand'] font-bold mr-10 bg-[#800E13] hover:bg-[#38040E] active:bg-[#800E13] focus:outline-none focus:ring rounded-md text-white py-2 px-4 mt-10">SAIR</button>
 </div>
-<button OnClick="location.href='cadastro-setor'" class=" w-[350px] ml-[200px] font-['Quicksand'] bg-[#155D27] hover:bg-[#10451D] active:bg-[#155D27] focus:outline-none focus:ring text-3xl mt-6 rounded-md p-2 font-bold text-white">CADASTRAR SETOR</button>
+
+<button OnClick="location.href='cadastro-setor'" class=" font-['Quicksand'] ml-10 bg-[#155D27] hover:bg-[#10451D] text-1xl mt-10 rounded-md p-2 px-3 font-bold text-white">CADASTRAR SETOR</button>
+
 <div class="flex justify-center">
-    <h1 class="font-['Quicksand'] mt-10 mb-8 text-5xl text-[#B9375E]">Veja todos os chamados <span class="font-bold">abertos</span></h1>
+    <h1 class="font-['Quicksand'] mt-10 mb-8 text-3xl text-[#B9375E]">Veja todos os chamados <span class="font-bold">abertos</span></h1>
 </div>
 <div class="flex justify-center">
-    <table id="tableTecnico" class="table-auto bg-[#B9375E] flex justify-center h-60 w-9/12 rounded-md">
+    <table id="tableTecnico" class="table-auto bg-[#B9375E] flex justify-center h-full w-8/12 rounded-md">
     </table>
 </div>
 <div class="flex justify-center">
-    <h2 class="font-['Quicksand'] mt-10 mb-8 text-5xl text-[#B9375E]">Técnicos aguardando <span class="font-bold">autorização</span></h2>
+    <h2 class="font-['Quicksand'] mt-10 mb-8 text-3xl text-[#B9375E]">Técnicos aguardando <span class="font-bold">autorização</span></h2>
 </div>
 <div class="flex justify-center">
-    <table id="table-tecnico" class="table-fixed bg-[#B9375E] flex justify-center h-60 w-9/12 rounded-md">
+    <table id="table-tecnico" class="table-fixed bg-[#B9375E] flex justify-center h-full w-8/12 rounded-md">
 
     </table>
 </div>
 <div class="flex justify-center">
-    <h2 class="font-['Quicksand'] mt-10 mb-8 text-5xl text-[#B9375E]">Veja todos os setores <span class="font-bold">cadastrados</span></h2>
+    <h2 class="font-['Quicksand'] mt-10 mb-8 text-3xl text-[#B9375E]">Veja todos os setores <span class="font-bold">cadastrados</span></h2>
 </div>
 <div class="flex justify-center">
-    <table id="table-setor" class="table-fixed bg-[#B9375E] flex justify-center h-60 w-9/12 rounded-md">
+    <table id="table-setor" class="table-fixed bg-[#B9375E] flex justify-center h-full w-8/12 rounded-md">
 
     </table>
 </div>
