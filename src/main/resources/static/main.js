@@ -30,7 +30,7 @@ function getChamadosUsuario(id){
 
     }
     document.getElementById("table").innerHTML = linhas;
-    document.getElementById("nomeUsuario").innerHTML = chamados[0].usuario.nome;
+    document.getElementById("nomePessoa").innerHTML = localStorage.getItem("nome");
 }
 
 function excluirChamado(id){
@@ -64,10 +64,11 @@ function logarPessoa(formulario){
     }
 
     localStorage.setItem("token", response.token);
+    localStorage.setItem("nome", response.nome);
 
     switch(response.tipo) {
         case 'Admin':
-            window.location.href = '/admin';
+            window.location.href = '/administrador';
             break;
         case 'Técnico':
             window.location.href = "tela-tecnico";
@@ -133,6 +134,8 @@ var chamados = request( "GET", "mostrarchamados");
 
     }
     document.getElementById("tableTecnico").innerHTML = linhas;
+    document.getElementById("nomePessoa").innerHTML = localStorage.getItem("nome");;
+
 }
 
 function getSetores(){

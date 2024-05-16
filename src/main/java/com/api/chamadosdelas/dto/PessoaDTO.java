@@ -3,22 +3,20 @@ package com.api.chamadosdelas.dto;
 import jakarta.validation.constraints.Email;
 import org.hibernate.validator.constraints.Length;
 
-import java.util.Locale;
-
 public class PessoaDTO {
     private String nome;
     @Email(message = "O campo [email] deve conter um e-mail válido")
     private String email;
     @Length(min = 8, max = 100)
     private String senha;
-    private String setor;
+    private int setorId;
     private String tipo;
 
-    public PessoaDTO(String nome, String email, String senha, String setor, String tipo){
+    public PessoaDTO(String nome, String email, String senha, int setorId, String tipo){
         this.nome = nome;
         this.email = email;
         this.senha = senha;
-        this.setor = setor;
+        this.setorId = setorId;
         this.tipo = tipo;
     }
 
@@ -46,12 +44,12 @@ public class PessoaDTO {
         this.senha = senha;
     }
 
-    public String getSetor() {
-        return setor;
+    public int getSetorId() {
+        return setorId;
     }
 
-    public void setSetor(String setor) {
-        this.setor = setor;
+    public void setSetor(int setorId) {
+        this.setorId = setorId;
     }
 
     public String getTipo() {
