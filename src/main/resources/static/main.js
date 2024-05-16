@@ -146,3 +146,13 @@ function getSetores(){
     }
     document.getElementById("select-setor").innerHTML = linhas;
 }
+
+function getPrioridades(){
+ var prioridades = request("GET", "prioridades");
+ var linhas = "";
+     for(i = 0; i < prioridades.length; i++){
+         linhas += '<option value = "' + prioridades[i] +'">' + prioridades[i] +'</option>';
+     }
+     document.getElementById("select-prioridade").innerHTML = linhas;
+     document.getElementById("nomePessoa").innerHTML = localStorage.getItem("nome");
+}
