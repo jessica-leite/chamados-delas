@@ -4,6 +4,7 @@ package com.api.chamadosdelas.controllers;
 import com.api.chamadosdelas.models.Setor;
 import com.api.chamadosdelas.services.SetorService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
@@ -29,8 +30,9 @@ public class SetorController {
     }
 
     @RequestMapping(value = "/excluirsetor/{id}", method = RequestMethod.DELETE)
-    public String deleteSetor(@PathVariable("id") int id) {
-        return this.setorService.deleteById(id);
+    public ResponseEntity<Object> deleteSetor(@PathVariable("id") int id) {
+        this.setorService.deleteById(id);
+        return ResponseEntity.noContent().build();
     }
 
     @RequestMapping(value = "/alterarsetor/{id}", method = RequestMethod.PUT)
