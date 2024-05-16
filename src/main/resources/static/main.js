@@ -4,9 +4,21 @@ function request(method, path, data){
     let request = new XMLHttpRequest();
     request.open(method, baseUrl + path, false);
     request.setRequestHeader('Content-Type', 'application/json');
-    data ? request.send(JSON.stringify(data)) : request.send();
-    const response = request.responseText;
-    return response ? JSON.parse(request.responseText) : request.responseText;
+    try {
+        data ? request.send(JSON.stringify(data)) : request.send();
+        const response = request.responseText;
+
+        console.log(request.status)
+
+        if (request.status != 200 || request.status != 204) {
+            alert(request.responseText)
+            return;
+        }
+
+        return response ? JSON.parse(request.responseText) : request.responseText;
+    } catch {
+        alert(request.responseText);
+    }
 }
 
 function getTabelasAdmin(){
