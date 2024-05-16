@@ -31,7 +31,7 @@ public class PessoaController {
         try {
 //            pessoa.setTipo("usuario");
 
-            Setor setor = this.setorService.findByName(dto.getSetor());
+            Setor setor = this.setorService.findById(dto.getSetorId());
 
             Pessoa registro = this.pessoaService.cadastrarUsuario(
                 dto.getNome(),
@@ -70,8 +70,6 @@ public class PessoaController {
         this.pessoaService.deleteById(id);
         return ResponseEntity.noContent().build();
     }
-
-
 }
 
 
