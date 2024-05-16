@@ -1,5 +1,6 @@
 package com.api.chamadosdelas.controllers;
 
+import com.api.chamadosdelas.dto.AtualizarPessoaDTO;
 import com.api.chamadosdelas.dto.AuthDTO;
 import com.api.chamadosdelas.dto.PessoaDTO;
 import com.api.chamadosdelas.dto.LoginDTO;
@@ -25,15 +26,15 @@ public class PessoaController {
     private SetorService setorService;
 
     @PostMapping("/cadastrar")
-    public ResponseEntity<Object> cadastrarUsuario(@Valid @RequestBody PessoaDTO dto) {
+    public ResponseEntity<Object> cadastrarPessoa(@Valid @RequestBody PessoaDTO dto) {
         // Tenta salvar pessoa com tipo usuario no banco, caso de ceto retorna um JSON com os dados cadastrados.
         // Caso contrario, retorna erro 400(badRequest)
         try {
 //            pessoa.setTipo("usuario");
 
-            Setor setor = this.setorService.findByName(dto.getSetor());
+            Setor setor = this.setorService.findById(dto.getSetorId());
 
-            Pessoa registro = this.pessoaService.cadastrarUsuario(
+            Pessoa registro = this.pessoaService.cadastrarPessoa(
                 dto.getNome(),
                 dto.getEmail(),
                 dto.getSenha(),
@@ -46,13 +47,35 @@ public class PessoaController {
             return ResponseEntity.badRequest().body(e.getMessage());
         }
     }
+    @PostMapping("/atualizar/{id}")
+    public ResponseEntity<Object> atualizarPessoa(@Valid @RequestBody AtualizarPessoaDTO dto, @PathVariable long id) {
+        // Tenta salvar pessoa com tipo usuario no banco, caso de ceto retorna um JSON com os dados cadastrados.
+        // Caso contrario, retorna erro 400(badRequest)
+        try {
+            Setor setor = this.setorService.findByName(dto.getSetor());
+
+            Pessoa registro = this.pessoaService.atualizarPessoa(
+                    dto.getNome(),
+                    dto.getEmail(),
+                    setor,
+                    dto.getSenhaAtual(),
+                    dto.getSenhaNova(),
+                    id
+            );
+            return ResponseEntity.noContent().build();
+        } catch (Exception e) {
+            return ResponseEntity.badRequest().body(e.getMessage());
+        }
+    }
+
+
 
     @PostMapping("/login")
-    public ResponseEntity<Object> autenticarUsuario(@Valid @RequestBody AuthDTO authDTO) {
+    public ResponseEntity<Object> autenticarPessoa(@Valid @RequestBody AuthDTO authDTO) {
         // Tenta Logar pessoa, caso de ceto retorna um Token.
         // Caso contrario, retorna erro 401(UNAUTHORIZED)
         try {
-            LoginDTO loginDto = this.pessoaService.autenticarUsuario(authDTO);
+            LoginDTO loginDto = this.pessoaService.autenticarPessoa(authDTO);
             return ResponseEntity.ok(loginDto);
         } catch (Exception e) {
             return ResponseEntity.status(HttpStatus.UNAUTHORIZED).body(e.getMessage());
@@ -60,7 +83,7 @@ public class PessoaController {
     }
 
     @GetMapping("/autorizartecnico")
-    public ResponseEntity<Object> findAllUsuarios(){
+    public ResponseEntity<Object> findAllPessoas(){
         List<Pessoa> pessoas = this.pessoaService.findByTipo("aguardando autorizacao");
         return ResponseEntity.ok(pessoas);
     }
@@ -70,8 +93,6 @@ public class PessoaController {
         this.pessoaService.deleteById(id);
         return ResponseEntity.noContent().build();
     }
-
-
 }
 
 

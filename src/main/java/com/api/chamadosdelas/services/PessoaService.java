@@ -4,6 +4,7 @@ import com.api.chamadosdelas.dto.AuthDTO;
 import com.api.chamadosdelas.dto.LoginDTO;
 import com.api.chamadosdelas.exceptions.AutenticacaoExcecao;
 import com.api.chamadosdelas.exceptions.PessoaExistenteExcecao;
+import com.api.chamadosdelas.exceptions.SenhaIncorretaExcecao;
 import com.api.chamadosdelas.exceptions.UsuarioNaoEncontradoExcecao;
 import com.api.chamadosdelas.models.Pessoa;
 import com.api.chamadosdelas.models.Setor;
@@ -35,8 +36,7 @@ public class PessoaService {
     @Autowired
     private PasswordEncoder passwordEncoder;
 
-//    public Pessoa cadastrarUsuario(Pessoa pessoa) {
-    public Pessoa cadastrarUsuario(String nome, String email, String senha, Setor setor, String tipo) {
+    public Pessoa cadastrarPessoa(String nome, String email, String senha, Setor setor, String tipo) {
         // busca pessoa no banco atraves do email, se encontrar lança excecão.
         Optional<Pessoa> registro = this.pessoaRepository.findByEmail(email);
 
@@ -55,8 +55,32 @@ public class PessoaService {
 
         return this.pessoaRepository.save(pessoa);
     }
+    public Pessoa atualizarPessoa(String nome, String email, Setor setor, String senhaAtual, String senhaNova, long id) {
+        // busca pessoa no banco atraves do id, senão encontrar lança excecão.
+        Optional<Pessoa> registro = this.pessoaRepository.findById(id);
 
-    public LoginDTO autenticarUsuario(AuthDTO authDTO) {
+        if (registro.isEmpty()){
+            throw new UsuarioNaoEncontradoExcecao();
+        }
+
+        Pessoa pessoa = registro.get();
+        boolean senhaEstaCorreta = this.passwordEncoder.matches(senhaAtual, pessoa.getSenha());
+
+        if (!senhaEstaCorreta) {
+            throw new SenhaIncorretaExcecao();
+        }
+
+        String senhaAtualizada = this.passwordEncoder.encode(senhaNova);
+
+        pessoa.setEmail(email);
+        pessoa.setNome(nome);
+        pessoa.setSetor(setor);
+        pessoa.setSenha(senhaAtualizada);
+
+        return this.pessoaRepository.save(pessoa);
+    }
+
+    public LoginDTO autenticarPessoa(AuthDTO authDTO) {
 
         // busca pessoa no banco atraves do email, senão achar lança excecão.
         Optional<Pessoa> registro = this.pessoaRepository.findByEmail(authDTO.getEmail());
@@ -84,7 +108,7 @@ public class PessoaService {
                 .withExpiresAt(Instant.now().plus(Duration.ofHours(2)))
                 .withSubject(String.valueOf(pessoa.getId())).sign(algorithm);
 
-        return new LoginDTO(token, pessoa.getTipo(), pessoa.getId());
+        return new LoginDTO(token, pessoa.getTipo(), pessoa.getId(), pessoa.getNome());
     }
 
     public List<Pessoa> findByTipo(String tipo) {
