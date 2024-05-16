@@ -12,8 +12,9 @@
     <link href="https://fonts.googleapis.com/css2?family=Quicksand:wght@300..700&display=swap" rel="stylesheet">
     <link href="output.css" rel="stylesheet">
     <script src="https://cdn.tailwindcss.com"></script>
+    <script src="main.js"></script>
 </head>
-<body>
+<body onload="getSetores()">
 <header class="w-screen h-38 flex justify-center bg-[#B9375E]">
     <img class="h-12 p-2" src="/assets/logo-branco-header.png">
 </header>
@@ -24,26 +25,26 @@
 </div>
 
 <container class="font-['Quicksand'] flex ml-10 w-10/12 text-lg">
-    <form action="#" method="post" class="bg-[#FFE0E9] rounded-md mt-5 w-10/12 px-10 py-5 flex flex-col gap-2">
+    <form action="javascript:;" onsubmit="atualizarPessoa(this)" id="form-atualizar" class="bg-[#FFE0E9] rounded-md mt-5 w-10/12 px-10 py-5 flex flex-col gap-2">
         <label class="text-[#B9375E]">Nome <span class="font-bold">completo</span></label>
-        <input class="placeholder:italic font-['Poppins'] text-xs text-[#B9375E] border-none bg--100 p-2 rounded-md outline-none h-9 w-full" type="text" placeholder="digite seu nome completo" required>
+        <input name="nome" type="text" class="placeholder:italic font-['Poppins'] text-xs text-[#B9375E] border-none bg--100 p-2 rounded-md outline-none h-9 w-full" placeholder="digite seu nome completo" required>
 
         <label class="text-[#B9375E]">E-<span class="font-bold">mail</span></label>
-        <input class="placeholder:italic font-['Poppins'] text-xs text-[#B9375E] border-none bg--100 p-2 rounded-md outline-none h-9 w-full" type="text" placeholder="digite seu e-mail" required>
+        <input name="email" type="email" class="placeholder:italic font-['Poppins'] text-xs text-[#B9375E] border-none bg--100 p-2 rounded-md outline-none h-9 w-full"  placeholder="digite seu e-mail" required>
+
+        <label class="text-[#B9375E]">senha <span class="font-bold">Atual</span></label>
+        <input name="senhaAtual" type="password" class="placeholder:italic font-['Poppins'] text-xs text-[#B9375E] border-none bg--100 p-2 rounded-md outline-none h-9 w-full"  placeholder="digite sua nova senha" required>
 
         <label class="text-[#B9375E]">Nova <span class="font-bold">senha</span></label>
-        <input class="placeholder:italic font-['Poppins'] text-xs text-[#B9375E] border-none bg--100 p-2 rounded-md outline-none h-9 w-full" type="password" placeholder="digite sua nova senha" required>
+        <input name="senhaNova" type="password" class="placeholder:italic font-['Poppins'] text-xs text-[#B9375E] border-none bg--100 p-2 rounded-md outline-none h-9 w-full"  placeholder="digite sua nova senha" required>
 
-        <label class="text-[#B9375E]" for="escolha">Selecione o <span class="font-bold">setor:</span></label>
-        <select class="rounded-md text-[#B9375E] text-lg w-3/12" id="escolha" name="escolha">
-            <option value="opcao1">Opção 1</option>
-            <option value="opcao2">Opção 2</option>
-            <option value="opcao3">Opção 3</option>
-            <option value="opcao4">Opção 4</option>
+        <label class="text-[#B9375E]" for="select-setor">Selecione o <span class="font-bold">setor:</span></label>
+        <select name="setor" id="select-setor" class="rounded-md text-[#B9375E] text-lg w-3/12">
+            <option value=""></option>
         </select>
 
         <div class="flex justify-end">
-            <button type="submit" class="font-bold bg-[#155D27] hover:bg-[#10451D] active:bg-[#800E13] focus:outline-none focus:ring rounded-md text-white py-1 px-3 mt-5 mb-6">SALVAR</button>
+            <button type="submit" form="form-atualizar" value="Submit" class="font-bold bg-[#155D27] hover:bg-[#10451D] active:bg-[#800E13] focus:outline-none focus:ring rounded-md text-white py-1 px-3 mt-5 mb-6">SALVAR</button>
         </div>
     </form>
 </container>

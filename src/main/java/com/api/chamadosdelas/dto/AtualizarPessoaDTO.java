@@ -5,17 +5,17 @@ import org.hibernate.validator.constraints.Length;
 
 public class AtualizarPessoaDTO {
     private String nome;
-    private String setor;
+    private int setorId;
     private String senhaAtual;
     @Length(min = 8, max = 100)
     private String senhaNova;
     @Email(message = "O campo [email] deve conter um e-mail válido")
     private String email;
 
-    public AtualizarPessoaDTO(String nome, String email, String setor, String senhaAtual, String senhaNova) {
+    public AtualizarPessoaDTO(String nome, String email, int setorId, String senhaAtual, String senhaNova) {
         this.nome = nome;
         this.email = email;
-        this.setor = setor;
+        this.setorId = setorId;
         this.senhaAtual = senhaAtual;
         this.senhaNova = senhaNova;
     }
@@ -36,12 +36,10 @@ public class AtualizarPessoaDTO {
         this.email = email;
     }
 
-    public String getSetor() {
-        return setor;
-    }
+    public int getSetorId() { return setorId; }
 
-    public void setSetor(String setor) {
-        this.setor = setor;
+    public void setSetor(int setorId) {
+        this.setorId = setorId;
     }
 
     public String getSenhaAtual() {

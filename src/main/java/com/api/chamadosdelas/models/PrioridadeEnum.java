@@ -1,7 +1,7 @@
 package com.api.chamadosdelas.models;
 
 public enum PrioridadeEnum {
-    Alta,
+    Baixa,
     Media,
-    Baixa
+    Alta
 }

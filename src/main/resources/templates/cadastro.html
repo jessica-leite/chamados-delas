@@ -17,10 +17,11 @@
     <script src="https://cdn.tailwindcss.com"></script>
     <script src="main.js"></script>
 </head>
-<body class="flex justify-between gap-8">
+
+<body onload="getSetores()" class="flex justify-between gap-8">
 
         <div class="flex items-center justify-center ml-10 w-4/6">
-            <img src="/assets/logo-principal-3.png" alt="logo chamadoDelas">
+            <img src="logo-principal-3.png" alt="logo chamadoDelas">
         </div>
 
         <div class="bg-[#B9375E] ml-12 h-dvh w-4/6">
@@ -39,7 +40,7 @@
                     <input name="senha" type="password" placeholder="digite sua senha" required class="text-sm px-3 rounded-md placeholder:italic font-['Poppins'] text-[#B9375E]">
 
                     <label class="font-['Poppins'] text-[#B9375E]">Setor</label>
-                    <select name="setor" id="select=setor" required class="text-sm px-3 rounded-md placeholder:italic font-['Poppins'] text-[#B9375E]" >
+                    <select name="setor" id="select-setor" required class="text-sm px-3 rounded-md placeholder:italic font-['Poppins'] text-[#B9375E]" >
 
                         <option value=""></option>
 

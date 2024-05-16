@@ -52,8 +52,7 @@ public class PessoaController {
         // Tenta salvar pessoa com tipo usuario no banco, caso de ceto retorna um JSON com os dados cadastrados.
         // Caso contrario, retorna erro 400(badRequest)
         try {
-            Setor setor = this.setorService.findByName(dto.getSetor());
-
+            Setor setor = this.setorService.findById(dto.getSetorId());
             Pessoa registro = this.pessoaService.atualizarPessoa(
                     dto.getNome(),
                     dto.getEmail(),
@@ -67,8 +66,6 @@ public class PessoaController {
             return ResponseEntity.badRequest().body(e.getMessage());
         }
     }
-
-
 
     @PostMapping("/login")
     public ResponseEntity<Object> autenticarPessoa(@Valid @RequestBody AuthDTO authDTO) {
