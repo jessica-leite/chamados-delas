@@ -90,6 +90,17 @@ public class PessoaController {
         this.pessoaService.deleteById(id);
         return ResponseEntity.noContent().build();
     }
+
+    @PostMapping("/autorizar/{id}")
+    public ResponseEntity<Object> autorizarPessoa(@PathVariable long id) {
+        try {
+            this.pessoaService.autorizarPessoa(id);
+
+            return ResponseEntity.noContent().build();
+        } catch (Exception e) {
+            return ResponseEntity.badRequest().body(e.getMessage());
+        }
+    }
 }
 
 

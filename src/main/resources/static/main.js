@@ -9,6 +9,34 @@ function request(method, path, data){
     return response ? JSON.parse(request.responseText) : request.responseText;
 }
 
+function getTabelasAdmin(){
+    getChamadosTecnico();
+ getTecnicosAguardandoAutorizacao();
+
+
+
+}
+
+function getTecnicosAguardandoAutorizacao(){
+    var tecnicosAguardando = request("GET", "pessoa/autorizartecnico");
+    var linhas = "";
+    for(i = 0; i < tecnicosAguardando.length; i++){
+        linhas += '<tr id="'+tecnicosAguardando[i].id+'" class="font-['+'Quicksand'+'] items-center no-wrap mb-3 mx-5 text-xs mt-5 px-5 gap-12 flex justify-between text-[#B9375E] bg-[#FFE0E9] rounded-md h-8 w-8/8">'
+                                          + '<td><button onclick="excluirCadastroId('+ tecnicosAguardando[i].id +')" class="font-['+'Quicksand'+'] font-bold mr-5 bg-[#800E13] hover:bg-[#38040E] active:bg-[#800E13] focus:outline-none focus:ring rounded-md text-white py-1 px-2 mt-1">'+'X'+'</button></td>'
+                                          +'<td><button OnClick="aprovarTecnico(' + tecnicosAguardando[i].id + ')" class=" font-['+'Quicksand'+'] bg-green-700 hover:bg-green-900 active:bg-green-800 focus:outline-none focus:ring text-1xl mt-1 rounded-md p-1 px-2 font-bold text-white">'+'APROVAR'+'</button></td>'
+                                          + '<td>'+ tecnicosAguardando[i].nome + '</td>'
+                                          + '<td>'+ tecnicosAguardando[i].email + '</td>'
+                                          + '</tr>'
+    }
+    document.getElementById("table-tecnico").innerHTML = linhas;
+}
+
+function aprovarTecnico(id){
+    request("POST", "pessoa/autorizar/" + id);
+    alert("Técnico autorizado com sucesso!");
+    document.getElementById(id).remove();
+}
+
 function getChamadosUsuario(){
     var chamados = request( "GET", "mostrarchamados/" + localStorage.getItem("pessoaId"));
     var linhas = "";
@@ -33,14 +61,29 @@ function getChamadosUsuario(){
     document.getElementById("nomePessoa").innerHTML = localStorage.getItem("nome");
 }
 
+function getChamado(id){
+ var chamado = request( "GET", "mostrarchamado/" + id);
+document.getElementById("titulo").innerHTML = chamado.titulo;
+document.getElementById("descricao").innerHTML = chamado.descricao;
+document.getElementById("prioridade").value = chamado.prioridade;
+ document.getElementById("nomePessoa").innerHTML = localStorage.getItem("nome");
+}
+
 function excluirChamado(id){
     request( "DELETE", "excluirchamado/" + id);
     document.getElementById(id).remove();
 }
 
 function excluirCadastro(){
-    //request( "DELETE", "excluirpessoa/" + id);
+    request( "DELETE", "excluirpessoa/" + localStorage.getItem("pessoaId"));
+    alert("Cadastro excluído!")
     location.href="login";
+}
+
+function excluirCadastroId(id){
+    request( "DELETE", "pessoa/excluirpessoa/" + id);
+    alert("Cadastro excluído!")
+     document.getElementById(id).remove();
 }
 
 function cadastrarPessoa(formulario){
@@ -151,7 +194,7 @@ var chamados = request( "GET", "mostrarchamados");
 
     }
     document.getElementById("tableTecnico").innerHTML = linhas;
-    document.getElementById("nomePessoa").innerHTML = localStorage.getItem("nome");;
+    document.getElementById("nomePessoa").innerHTML = localStorage.getItem("nome");
 
 }
 

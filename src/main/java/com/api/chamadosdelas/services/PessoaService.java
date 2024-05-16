@@ -124,4 +124,15 @@ public class PessoaService {
 
         this.pessoaRepository.delete(registro.get());
     }
+
+    public void autorizarPessoa(long id) {
+        Optional<Pessoa> registro = this.pessoaRepository.findById(id);
+        if (registro.isEmpty()) {
+            throw new UsuarioNaoEncontradoExcecao();
+        }
+        registro.get().setTipo("Técnico");
+        this.pessoaRepository.save(registro.get());
+
+
+    }
 }
