@@ -2,6 +2,7 @@ package com.api.chamadosdelas.controllers;
 
 import com.api.chamadosdelas.models.Chamado;
 
+import com.api.chamadosdelas.models.Pessoa;
 import com.api.chamadosdelas.models.PrioridadeEnum;
 import com.api.chamadosdelas.models.StatusEnum;
 import com.api.chamadosdelas.services.ChamadoService;
@@ -21,8 +22,11 @@ public class ChamadoController {
     @Autowired
     private ChamadoService chamadoService;
 
-    @RequestMapping(value = "/cadchamado", method = RequestMethod.POST)
-    public Chamado save(@RequestBody Chamado c) {
+    @RequestMapping(value = "/cadchamado/{id}", method = RequestMethod.POST)
+    public Chamado save(@RequestBody Chamado c, @PathVariable int id) {
+        var pessoa = new Pessoa();
+        pessoa.setId(id);
+        c.setUsuario(pessoa);
         c.setDataInicio(LocalDateTime.now());
         return this.chamadoService.save(c);
     }
