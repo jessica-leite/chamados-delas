@@ -7,14 +7,6 @@ function request(method, path, data){
     try {
         data ? request.send(JSON.stringify(data)) : request.send();
         const response = request.responseText;
-
-        console.log(request.status)
-
-        if (request.status != 200 || request.status != 204) {
-            alert(request.responseText)
-            return;
-        }
-
         return response ? JSON.parse(request.responseText) : request.responseText;
     } catch {
         alert(request.responseText);
