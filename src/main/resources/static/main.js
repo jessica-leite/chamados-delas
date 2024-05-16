@@ -74,10 +74,12 @@ function excluirChamado(id){
     document.getElementById(id).remove();
 }
 
-function excluirCadastro(){
-    request( "DELETE", "excluirpessoa/" + localStorage.getItem("pessoaId"));
-    alert("Cadastro excluído!")
-    location.href="login";
+function excluirPessoa(){
+    console.log("entrei no excluir pessoa")
+    const id = localStorage.getItem("pessoaId");
+    request( "DELETE", "/pessoa/excluir/" + id);
+    localStorage.clear();
+    location.href="/index";
 }
 
 function excluirCadastroId(id){
@@ -104,9 +106,9 @@ function cadastrarChamado(formulario){
     console.log(formulario);
     const chamado = getFormData(formulario);
     console.log(chamado);
-    //request("POST", "cadchamado", chamado);
-    //alert("Cadastro feito com sucesso!");
-    //window.location.href = '/tela-usuario'
+    request("POST", "cadchamado", chamado);
+    alert("Cadastro feito com sucesso!");
+    window.location.href = '/tela-usuario'
 }
 
 function logarPessoa(formulario){
@@ -194,7 +196,7 @@ var chamados = request( "GET", "mostrarchamados");
 
     }
     document.getElementById("tableTecnico").innerHTML = linhas;
-    document.getElementById("nomePessoa").innerHTML = localStorage.getItem("nome");
+    document.getElementById("nomePessoa").innerHTML = localStorage.getItem("nome");;
 
 }
 

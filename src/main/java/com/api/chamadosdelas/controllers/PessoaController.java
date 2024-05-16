@@ -85,7 +85,7 @@ public class PessoaController {
         return ResponseEntity.ok(pessoas);
     }
 
-    @DeleteMapping("/excluirpessoa/{id}")
+    @DeleteMapping("/excluir/{id}")
     public ResponseEntity<Object> deleteById(@PathVariable Long id){
         this.pessoaService.deleteById(id);
         return ResponseEntity.noContent().build();
