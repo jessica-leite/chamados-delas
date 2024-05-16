@@ -49,6 +49,13 @@ function cadastrarPessoa(formulario){
     alert("Cadastro feito com sucesso!");
     window.location.href = '/login';
 }
+function atualizarPessoa(formulario){
+    const dadosFormulario = getFormData(formulario);
+    const id = localStorage.getItem("pessoaId");
+    request("POST", "pessoa/atualizar/" + id, dadosFormulario);
+    alert("Atualização feita com sucesso!");
+    window.location.href = '/login';
+}
 
 function cadastrarChamado(formulario){
     console.log(formulario);
@@ -81,7 +88,7 @@ function logarPessoa(formulario){
             window.location.href = '/administrador';
             break;
         case 'Técnico':
-            window.location.href = "tela-tecnico";
+            window.location.href = "/tela-tecnico";
             break;
         case 'Usuário':
             window.location.href = '/tela-usuario';
@@ -92,7 +99,7 @@ function logarPessoa(formulario){
 }
 
 function logout(){
-    localStorage.removeItem('token');
+    localStorage.clear();
     window.location.href = '/login';
 }
 
@@ -149,6 +156,7 @@ var chamados = request( "GET", "mostrarchamados");
 }
 
 function getSetores(){
+    console.log("Entrei na função setor")
     var setores = request("GET", "mostrarsetores");
     var linhas = '<option value = ""></option>';
     for(i = 0; i < setores.length; i++){
