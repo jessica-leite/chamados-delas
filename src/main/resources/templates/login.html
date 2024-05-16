@@ -18,27 +18,32 @@
     <script src="main.js"></script>
 </head>
 
-<body class="flex  items-center h-screen">
-<container class="w-full h-full flex flex-col justify-center items-center">
-    <h1 class="font-bold font-['Quicksand'] text-6xl mb-24 " style="color:#B9375E">Bem vindo(a) ao,</h1>
-    <img  class="px-10" src="/assets/logo-principal-3.png">
+<body class="flex justify-between gap-8">
 
-</container>
-<container class="w-full h-full flex flex-col justify-center items-center" style="background-color:#B9375E">
-    <div class="flex flex-col items-center bg-pink-100 rounded-lg p-24 drop-shadow-2xl  ">
-        <h2 class=" mb-12 text-6xl font-bold font-['Poppins']" style="color:#B9375E" >Faça seu login</h2>
-        <form action="javascript:;" onsubmit="logarPessoa(this)" id="formulario-login" class="flex flex-col min-w-full">
-            <label class="text-3xl mb-4 mt-4 font-['Poppins']" style="color:#B9375E">E-mail</label>
-            <input name="email" type="email" placeholder="digite seu e-mail" class=" placeholder:italic font-['Poppins'] text-2xl text-pink-600 border-none bg--100 p-2 rounded-md outline-none ">
+<div class="flex flex-col items-center justify-center ml-10 w-4/6">
+    <h1 class="font-bold font-['Quicksand'] text-5xl mb-10 text-[#B9375E]">Bem vindo(a) ao,</h1>
+    <img src="/assets/logo-principal-3.png">
+</div>
 
-            <label class="text-3xl mb-4 mt-4 font-['Poppins']" style="color:#B9375E">Senha</label>
-            <input name="senha" type="password" placeholder="digite sua senha" class="placeholder:italic font-['Poppins'] text-pink-600 text-2xl border-none  p-2 rounded-md outline-none">
-        </form>
-        <button type="submit" form="formulario-login" value="Submit" class=" font-['Quicksand'] bg-green-700 hover:bg-green-900 active:bg-green-800 focus:outline-none focus:ring text-3xl mt-14 rounded-md p-2 px-6 font-bold text-white">ENTRAR</button>
+    <div class="bg-[#B9375E] ml-12 h-dvh w-4/6">
+        <div class="shadow-2xl bg-[#FFE0E9] rounded-md mt-20 mb-4 mx-10 flex flex-col h-4/6 justify-center items-center">
+
+            <h2 class="font-['Poppins'] text-[#B9375E] text-5xl mb-10 font-bold flex justify-center mt-5">Faça seu login</h2>
+
+            <form action="javascript:;" onsubmit="logarPessoa(this)" id="formulario-login" class="flex flex-col w-8/12 gap-2">
+                <label class="font-['Poppins'] text-[#B9375E]">E-mail</label>
+                <input name="email" type="email" placeholder="digite seu e-mail" class="text-sm px-3 rounded-md placeholder:italic font-['Poppins'] text-[#B9375E]">
+
+                <label class="font-['Poppins'] text-[#B9375E]">Senha</label>
+                <input name="senha" type="password" placeholder="digite sua senha" class="text-sm px-3 rounded-md placeholder:italic font-['Poppins'] text-[#B9375E]">
+            </form>
+            <button type="submit" form="formulario-login" value="Submit" class="font-['Quicksand'] bg-[#155D27] hover:bg-[#10451D] active:bg-[#155D27] focus:outline-none focus:ring mt-12 rounded-md p-2 px-6 font-bold text-white text-xl">ENTRAR</button>
+
+        </div>
+
+        <a class="font-['Poppins'] text-[#FFE0E9] font-bold text-xl flex justify-center hover:underline" href="cadastro.html">Cadastre-se aqui</a>
 
     </div>
-    <a class="font-['Poppins'] text-pink-100 font-bold text-3xl mt-8 hover:underline" href="">Cadastre-se aqui</a>
-</container>
 
 </body>
 
