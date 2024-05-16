@@ -11,7 +11,7 @@ public class Setor {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int id;
 
-    @Column
+    @Column(unique = true)
     private String nome;
 
     public Setor() {

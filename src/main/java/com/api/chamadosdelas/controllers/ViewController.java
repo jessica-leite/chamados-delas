@@ -35,9 +35,9 @@ public class ViewController {
         return "atualizar-chamado";
     }
 
-    @RequestMapping(value = "/atualizar-usuario", method = RequestMethod.GET)
-    public String renderizaAtualizarUsuario() {
-        return "atualizar-usuario";
+    @RequestMapping(value = "/atualizar-pessoa", method = RequestMethod.GET)
+    public String renderizaAtualizarPessoa() {
+        return "atualizar-pessoa";
     }
 
     @RequestMapping(value = "/tela-usuario", method = RequestMethod.GET)
@@ -48,11 +48,6 @@ public class ViewController {
     @RequestMapping(value = "/tela-tecnico", method = RequestMethod.GET)
     public String renderizaTelaTecnico() {
         return "tela-tecnico";
-    }
-
-    @RequestMapping(value = "/atualizar-tecnico", method = RequestMethod.GET)
-    public String renderizaAtualizarTecnico() {
-        return "atualizar-tecnico";
     }
 
     @RequestMapping(value = "/administrador", method = RequestMethod.GET)
