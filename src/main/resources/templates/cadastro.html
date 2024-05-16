@@ -18,41 +18,49 @@
     <script src="main.js"></script>
 </head>
 
-<body class="flex  items-center h-screen" >
-    <container class="w-full h-full flex justify-center items-center">
-        <img src="/assets/logo-principal.png" alt="">
-    </container>
-    <container class="w-full h-full flex justify-center items-center" style="background-color:#B9375E">
-            <div class="flex flex-col items-center bg-pink-100 rounded-lg p-24 drop-shadow-2xl " >
-                <h2 class=" mb-12 text-6xl font-bold font-['Poppins']" style="color:#B9375E" >Cadastre-se</h2>
-                <form action="javascript:;" onsubmit="cadastrarPessoa(this)" class="flex flex-col min-w-full" id="form-cadastro">
-                    <label class="text-3xl mb-4 font-['Poppins']" style="color:#B9375E" >Nome completo</label>
-                    <input name="nome" type="text" placeholder="digite seu nome completo" required  class=" placeholder:italic font-['Poppins'] text-pink-600 text-2xl border-none p-2 rounded-md outline-none" >
+<body class="flex justify-between gap-8">
 
-                    <label class="text-3xl mb-4 mt-4 font-['Poppins']" style="color:#B9375E">E-mail</label>
-                    <input name="email" type="email" placeholder="digite seu e-mail"  required class=" placeholder:italic font-['Poppins'] text-2xl text-pink-600 border-none bg--100 p-2 rounded-md outline-none ">
+        <div class="flex items-center justify-center ml-10 w-4/6">
+            <img src="/assets/logo-principal-3.png" alt="logo chamadoDelas">
+        </div>
 
-                    <label class="text-3xl mb-4 mt-4 font-['Poppins']" style="color:#B9375E">Senha</label>
-                    <input name="senha" type="password" placeholder="digite sua senha" required class="placeholder:italic font-['Poppins'] text-pink-600 text-2xl border-none  p-2 rounded-md outline-none">
+        <div class="bg-[#B9375E] ml-12 h-dvh w-4/6">
+            <div class="shadow-2xl bg-[#FFE0E9] rounded-md m-10 mx-20 flex flex-col h-5/6 justify-center items-center">
 
-                    <label class="text-3xl mb-4 mt-4 font-['Poppins']" style="color:#B9375E">Setor</label>
-                    <select name="setor" id="select=setor" required  class=" placeholder:italic font-['Poppins'] text-2xl text-pink-600 border-none bg--100 p-2 rounded-md outline-none" >
+                <h1 class="font-['Poppins'] text-[#B9375E] text-5xl mb-5 font-bold flex justify-center mt-5">Cadastre-se</h1>
+
+                <form class="flex flex-col w-8/12 gap-2" action="javascript:;" onsubmit="cadastrarPessoa(this)" id="form-cadastro">
+                    <label class="font-['Poppins'] text-[#B9375E]">Nome completo</label>
+                    <input name="nome" type="text" placeholder="digite seu nome completo" required  class="text-sm px-3 rounded-md placeholder:italic font-['Poppins'] text-[#B9375E]" >
+
+                    <label class="font-['Poppins'] text-[#B9375E]">E-mail</label>
+                    <input name="email" type="email" placeholder="digite seu e-mail"  required class="text-sm px-3 rounded-md placeholder:italic font-['Poppins'] text-[#B9375E]">
+
+                    <label class="font-['Poppins'] text-[#B9375E]">Senha</label>
+                    <input name="senha" type="password" placeholder="digite sua senha" required class="text-sm px-3 rounded-md placeholder:italic font-['Poppins'] text-[#B9375E]">
+
+                    <label class="font-['Poppins'] text-[#B9375E]">Setor</label>
+                    <select name="setor" id="select=setor" required class="text-sm px-3 rounded-md placeholder:italic font-['Poppins'] text-[#B9375E]" >
                         <option value=""></option>
                         <option>Administrativo</option>
                         <option>Contabilidade</option>
                         <option>Produção</option>
                         <option>Ambiental</option>
                     </select>
-                    <label class="text-3xl mb-4 mt-4 font-['Poppins']" style="color:#B9375E">Pessoa</label>
-                    <select name="tipo" id="select-tipo" required  class=" placeholder:italic font-['Poppins'] text-2xl text-pink-600 border-none bg--100 p-2 rounded-md outline-none" >
+
+                    <label class="font-['Poppins'] text-[#B9375E]">Pessoa</label>
+                    <select name="tipo" id="select-tipo" required class="text-sm px-3 rounded-md placeholder:italic font-['Poppins'] text-[#B9375E]" >
                         <option value=""></option>
                         <option>Usuário</option>
                         <option>Técnico</option>
                     </select>
                 </form>
-                <button type="submit" form="form-cadastro" value="Submit" class=" font-['Quicksand'] bg-green-700 hover:bg-green-900 active:bg-green-800 focus:outline-none focus:ring text-3xl mt-12 rounded-md p-2 px-6 font-bold text-white">CADASTRAR</button>
+
+                <button type="submit" form="form-cadastro" value="Submit" class=" font-['Quicksand'] bg-[#155D27] hover:bg-[#10451D] active:bg-[#155D27] focus:outline-none focus:ring mt-12 rounded-md p-2 px-6 font-bold text-white text-xl">CADASTRAR</button>
             </div>
-    </container>
+        </div>
+
+
 
 </body>
 

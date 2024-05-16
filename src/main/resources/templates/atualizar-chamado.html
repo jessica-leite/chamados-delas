@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Dashboard Técnico</title>
+    <title>Editar informações do chamado</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link
@@ -14,28 +14,42 @@
     <link href="https://fonts.googleapis.com/css2?family=Quicksand:wght@300..700&display=swap" rel="stylesheet">
     <link href="./output.css" rel="stylesheet">
     <script src="https://cdn.tailwindcss.com"></script>
+
 </head>
 <body>
+
 <header class="w-screen h-38 flex justify-center bg-[#B9375E]">
     <img class="h-12 p-2" src="/assets/logo-branco-header.png">
 </header>
+
 <div class="flex justify-between">
-    <h2 class="font-['Quicksand'] mt-10 ml-10 text-3xl text-[#B9375E]">
+    <h1 class="font-['Quicksand'] mt-10 ml-9 text-3xl text-[#B9375E]">
         Olá, <span class="font-bold">nomeUsuario, </span>
         edite o chamado
-    </h2>
-    <button OnClick=" location.href='usuario' " class="font-['Quicksand'] font-bold mr-10 bg-[#800E13] hover:bg-[#38040E] active:bg-[#800E13] focus:outline-none focus:ring rounded-md text-white py-2 px-4 mt-10">CANCELAR</button>
+    </h1>
+    <button onclick="history.back()" class="font-['Quicksand'] font-bold mr-10 bg-[#800E13] hover:bg-[#38040E] active:bg-[#800E13] focus:outline-none focus:ring rounded-md text-white py-2 px-4 mt-10">CANCELAR</button>
 </div>
-<div class="flex justify-center">
-    <div class="font-['Quicksand'] flex-direction-column h-40 w-4/6 m-5 rounded-md bg-[#FFE0E9]">
-        <h2 class="font-['Quicksand'] mt-3 ml-5 text-lg font-semibold text-[#B9375E]">Título</h2>
+
+<form class="ml-10">
+    <div class="font-['Quicksand'] p-5 flex-direction-column h-1/5 w-4/6 mt-5 rounded-md bg-[#FFE0E9]">
+        <label class="font-['Quicksand'] ml-5 text-lg text-[#B9375E]">Descrição do <span class="font-bold">chamado</span></label>
         <div class="flex justify-start mt-2 ml-5 mr-5">
-            <input type="text" placeholder="digite o título do chamado" class=" placeholder:italic font-['Poppins'] text-xs text-pink-600 border-none bg--100 p-2 rounded-md outline-none h-9 w-full">
+            <input type="text" placeholder="digite o título do chamado" class="placeholder:italic font-['Poppins'] text-xs text-[#B9375E] border-none bg--100 p-2 rounded-md outline-none h-9 w-full" required>
         </div>
+
+        <div class="ml-5 mt-3">
+            <label class="text-[#B9375E] flex text-lg mb-2" for="escolha">Selecione a <span class="font-bold ml-1.5">prioridade:</span></label>
+            <select class="rounded-md text-[#B9375E] text-lg w-3/12" id="escolha" name="escolha">
+                <option value="baixa">baixa</option>
+                <option value="media">media</option>
+                <option value="alta">alta</option>
+            </select>
+        </div>
+
         <div class="flex justify-end">
-            <button class="font-['Quicksand'] font-bold mr-5 bg-[#155D27] hover:bg-[#38040E] active:bg-[#800E13] focus:outline-none focus:ring rounded-md text-white py-1 px-3 mt-5">ENVIAR</button>
+            <button type="submit" class="font-['Quicksand'] font-bold mr-5 bg-[#155D27] hover:bg-[#10451D] active:bg-[#800E13] focus:outline-none focus:ring rounded-md text-white py-1 px-3 mt-5">ENVIAR</button>
         </div>
     </div>
-</div>
+</form>
 </body>
 </html>
